@@ -1,0 +1,54 @@
+
+{
+  "id": null,
+  "title": "DevStack Overview",
+  "timezone": "browser",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "Prometheus Target Scrape Duration",
+      "targets": [
+        {
+          "expr": "scrape_duration_seconds",
+          "legendFormat": "{{instance}}",
+          "interval": ""
+        }
+      ],
+      "datasource": "Prometheus",
+      "gridPos": { "x": 0, "y": 0, "w": 12, "h": 8 }
+    },
+    {
+      "type": "graph",
+      "title": "Zipkin Latency (if metrics exposed)",
+      "targets": [
+        {
+          "expr": "zipkin_collector_spans",
+          "legendFormat": "Zipkin Spans",
+          "interval": ""
+        }
+      ],
+      "datasource": "Prometheus",
+      "gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 }
+    },
+    {
+      "type": "graph",
+      "title": "Kafka Broker Bytes In/Out (if metrics exposed)",
+      "targets": [
+        {
+          "expr": "kafka_server_brokertopicmetrics_bytesin_total",
+          "legendFormat": "Bytes In",
+          "interval": ""
+        },
+        {
+          "expr": "kafka_server_brokertopicmetrics_bytesout_total",
+          "legendFormat": "Bytes Out",
+          "interval": ""
+        }
+      ],
+      "datasource": "Prometheus",
+      "gridPos": { "x": 0, "y": 8, "w": 24, "h": 8 }
+    }
+  ],
+  "schemaVersion": 37,
+  "version": 1
+}
